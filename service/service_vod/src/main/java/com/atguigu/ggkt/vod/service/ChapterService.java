@@ -21,6 +21,6 @@ public interface ChapterService extends IService<Chapter> {
      * @param courseId courseId
      * @return List<ChapterVo>
      */
-    List<ChapterVo> getNestedTreeList(String courseId);
+    List<ChapterVo> getNestedTreeList(Long courseId);
 
 }

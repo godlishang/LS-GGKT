@@ -3,6 +3,7 @@ package com.atguigu.ggkt.vod.controller;
 
 import com.atguigu.ggkt.model.vod.Course;
 import com.atguigu.ggkt.vo.vod.CourseFormVo;
+import com.atguigu.ggkt.vo.vod.CoursePublishVo;
 import com.atguigu.ggkt.vo.vod.CourseQueryVo;
 import com.atguigu.ggkt.vod.service.CourseService;
 import com.atguigu.resultUtils.Result;
@@ -63,7 +64,22 @@ public class CourseController {
     @PostMapping("update")
     public Result<Object> update(@RequestBody CourseFormVo courseFormVo){
         courseService.updateCourseById(courseFormVo);
-        return Result.ok(null);
+        //将课程Id返回给前端，便于前端回显
+        return Result.ok(courseFormVo.getId());
+    }
+
+    @ApiOperation("根据id获取课程发布信息")
+    @GetMapping("getCoursePublishVo/{id}")
+    public Result<Object> getCoursePublishVo(@ApiParam(value = "课程ID",required = true) @PathVariable Long id){
+        CoursePublishVo coursePublishVo = courseService.getCoursePublishVoById(id);
+        return Result.ok(coursePublishVo);
+    }
+
+    @ApiOperation("根据id发布课程")
+    @PutMapping("publishCourseById/{id}")
+    public Result<Object> publishCourseById(@ApiParam(value = "课程ID",required = true) @PathVariable Long id){
+        boolean result = courseService.publishCourseById(id);
+        return Result.ok(result);
     }
 
 }

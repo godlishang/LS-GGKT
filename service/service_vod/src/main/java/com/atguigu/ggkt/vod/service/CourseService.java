@@ -2,10 +2,13 @@ package com.atguigu.ggkt.vod.service;
 
 import com.atguigu.ggkt.model.vod.Course;
 import com.atguigu.ggkt.vo.vod.CourseFormVo;
+import com.atguigu.ggkt.vo.vod.CoursePublishVo;
 import com.atguigu.ggkt.vo.vod.CourseQueryVo;
+import com.atguigu.resultUtils.Result;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import javax.annotation.Resource;
 import java.util.Map;
 /**
  * <p>
@@ -44,4 +47,18 @@ public interface CourseService extends IService<Course> {
      * @param courseFormVo 课程info
      */
     void updateCourseById(CourseFormVo courseFormVo);
+
+    /**
+     * 根据id获取课程发布信息
+     * @param id 课程id
+     * @return CoursePublishVo
+     */
+    CoursePublishVo getCoursePublishVoById(Long id);
+
+    /**
+     * 根据id发布课程
+     * @param id 课程id
+     * @return boolean
+     */
+    boolean publishCourseById(Long id);
 }

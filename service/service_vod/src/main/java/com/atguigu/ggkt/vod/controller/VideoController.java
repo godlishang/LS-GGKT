@@ -20,7 +20,7 @@ import javax.annotation.Resource;
  */
 @Api(tags = "课程小结(课时)")
 @RestController
-@RequestMapping("/vod/video")
+@RequestMapping("/admin/vod/video")
 @CrossOrigin
 public class VideoController {
 

@@ -5,6 +5,7 @@ import com.atguigu.ggkt.model.vod.CourseDescription;
 import com.atguigu.ggkt.model.vod.Subject;
 import com.atguigu.ggkt.model.vod.Teacher;
 import com.atguigu.ggkt.vo.vod.CourseFormVo;
+import com.atguigu.ggkt.vo.vod.CoursePublishVo;
 import com.atguigu.ggkt.vo.vod.CourseQueryVo;
 import com.atguigu.ggkt.vod.mapper.CourseDescriptionMapper;
 import com.atguigu.ggkt.vod.mapper.CourseMapper;
@@ -141,6 +142,21 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         courseDescription.setDescription(courseFormVo.getDescription());
         courseDescription.setId(course.getId());
         courseDescriptionMapper.updateById(courseDescription);
+    }
+
+    @Override
+    public CoursePublishVo getCoursePublishVoById(Long id) {
+        return courseMapper.selectCoursePublishVoById(id);
+    }
+
+    @Override
+    public boolean publishCourseById(Long id) {
+        Course course = new Course();
+        course.setId(id);
+        course.setStatus(1);
+        course.setPublishTime(new Date());
+        this.courseMapper.updateById(course);
+        return true;
     }
 
     public void getTeacherOrSubjectName(Course course){

@@ -33,7 +33,7 @@ public class ChapterServiceImpl extends ServiceImpl<ChapterMapper, Chapter> impl
     private VideoMapper videoMapper;
 
     @Override
-    public List<ChapterVo> getNestedTreeList(String courseId) {
+    public List<ChapterVo> getNestedTreeList(Long courseId) {
         List<ChapterVo> chapterVoList = new ArrayList<>();
         //获取章节信息
         LambdaQueryWrapper<Chapter> lambdaQueryWrapper = new LambdaQueryWrapper<>();
@@ -51,18 +51,18 @@ public class ChapterServiceImpl extends ServiceImpl<ChapterMapper, Chapter> impl
         for (Chapter chapter : chapterList) {
             ChapterVo chapterVo = new ChapterVo();
             BeanUtils.copyProperties(chapter,chapterVo);
-            chapterVoList.add(chapterVo);
 
             //填充数据：Video列表
             List<VideoVo> videoVoList = new ArrayList<>();
             for (Video video : videoList) {
-                if (chapter.getId().equals(video.getCourseId())){
+                if (chapter.getId().equals(video.getChapterId())){
                     VideoVo videoVo = new VideoVo();
                     BeanUtils.copyProperties(video,videoVo);
                     videoVoList.add(videoVo);
                 }
             }
             chapterVo.setChildren(videoVoList);
+            chapterVoList.add(chapterVo);
         }
         return chapterVoList;
     }

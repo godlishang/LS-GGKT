@@ -33,7 +33,7 @@ public class ChapterController {
     @ApiOperation("嵌套章节数据列表")
     @GetMapping("getNestedTreeList/{courseId}")
     public Result<Object> getNestedTreeList(@ApiParam(value = "课程ID",required = true)
-                                            @PathVariable String courseId){
+                                            @PathVariable Long courseId){
 
         List<ChapterVo> chapterVoList = chapterService.getNestedTreeList(courseId);
 

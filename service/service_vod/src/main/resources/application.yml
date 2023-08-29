@@ -36,5 +36,6 @@ tencent:
       bucketName: ggkt-atguigu-1319156449
 
 mybatis-plus:
+  mapper-locations: classpath:com/atguigu/ggkt/vod/mapper/xml/*.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
