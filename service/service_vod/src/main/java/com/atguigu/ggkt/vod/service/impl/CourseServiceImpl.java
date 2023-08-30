@@ -11,7 +11,10 @@ import com.atguigu.ggkt.vod.mapper.CourseDescriptionMapper;
 import com.atguigu.ggkt.vod.mapper.CourseMapper;
 import com.atguigu.ggkt.vod.mapper.SubjectMapper;
 import com.atguigu.ggkt.vod.mapper.TeacherMapper;
+import com.atguigu.ggkt.vod.service.ChapterService;
+import com.atguigu.ggkt.vod.service.CourseDescriptionService;
 import com.atguigu.ggkt.vod.service.CourseService;
+import com.atguigu.ggkt.vod.service.VideoService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -44,6 +47,12 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
     private SubjectMapper subjectMapper;
     @Resource
     private CourseDescriptionMapper courseDescriptionMapper;
+    @Resource
+    private VideoService videoService;
+    @Resource
+    private ChapterService chapterService;
+    @Resource
+    private CourseDescriptionService courseDescriptionService;
 
     @Override
     public Map<String, Object> findPage(Page<Course> pageParam, CourseQueryVo courseQueryVo) {
@@ -157,6 +166,19 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         course.setPublishTime(new Date());
         this.courseMapper.updateById(course);
         return true;
+    }
+
+    @Override
+    public void removeCourseById(Long id) {
+
+        //根据课程id删除小节
+        videoService.removeVideoByCourseId(id);
+        //根据课程id删除章节
+        chapterService.removeChapterByCourseId(id);
+        //根据课程id删除描述
+        courseDescriptionService.removeCourseDescriptionByCourseId(id);
+        //根据课程id删除课程
+        baseMapper.deleteById(id);
     }
 
     public void getTeacherOrSubjectName(Course course){

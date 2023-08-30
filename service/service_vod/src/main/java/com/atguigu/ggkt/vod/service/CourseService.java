@@ -61,4 +61,11 @@ public interface CourseService extends IService<Course> {
      * @return boolean
      */
     boolean publishCourseById(Long id);
+
+    /**
+     * 根据id删除课程
+     * @param id 课程id
+     */
+    void removeCourseById(Long id);
+
 }
