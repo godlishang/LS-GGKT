@@ -129,7 +129,9 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
             return null;
         }
         //从course_description表中取数据
-        CourseDescription courseDescription = courseDescriptionMapper.selectById(id);
+        QueryWrapper<CourseDescription> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("course_id", course.getId());
+        CourseDescription courseDescription = courseDescriptionMapper.selectOne(queryWrapper);
 
         CourseFormVo courseFormVo = new CourseFormVo();
         BeanUtils.copyProperties(course,courseFormVo);
@@ -147,8 +149,10 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         BeanUtils.copyProperties(courseFormVo,course);
         courseMapper.updateById(course);
         //修改课程详情信息
-        CourseDescription courseDescription = courseDescriptionMapper.selectById(courseFormVo.getId());
-        courseDescription.setDescription(courseFormVo.getDescription());
+        QueryWrapper<CourseDescription> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("course_id",courseFormVo.getId());
+        CourseDescription courseDescription = courseDescriptionMapper.selectOne(queryWrapper);
+        courseDescription.setDescription(StringUtils.isEmpty(courseFormVo.getDescription())?"":courseFormVo.getDescription());
         courseDescription.setId(course.getId());
         courseDescriptionMapper.updateById(courseDescription);
     }
