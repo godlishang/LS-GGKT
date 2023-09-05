@@ -2,6 +2,7 @@ package com.atguigu.ggkt.vod;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @date : 2023/2/27 16:49
  */
 @SpringBootApplication
+@EnableDiscoveryClient
 @ComponentScan("com.atguigu")
 public class ServiceVodApplication {
 
