@@ -21,7 +21,7 @@ import javax.annotation.Resource;
 @Api(tags = "课程小结(课时)")
 @RestController
 @RequestMapping("/admin/vod/video")
-@CrossOrigin
+//@CrossOrigin
 public class VideoController {
 
     @Resource

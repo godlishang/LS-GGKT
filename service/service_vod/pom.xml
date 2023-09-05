@@ -11,17 +11,6 @@
 
     <artifactId>service_vod</artifactId>
     <dependencies>
-        <!--解决swagger导致的 Illegal DefaultValue null for parameter type integer问题-->
-        <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-annotations</artifactId>
-            <version>1.5.22</version>
-        </dependency>
-        <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-models</artifactId>
-            <version>1.5.22</version>
-        </dependency>
         <!--mybatis代码生成器-->
         <dependency>
             <groupId>com.baomidou</groupId>

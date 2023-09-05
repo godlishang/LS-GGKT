@@ -22,7 +22,7 @@ import javax.annotation.Resource;
 @Api(tags = "腾讯云点播")
 @RestController
 @RequestMapping("/admin/vod")
-@CrossOrigin
+//@CrossOrigin
 public class VodController {
 
     @Resource

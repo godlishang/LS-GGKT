@@ -24,7 +24,7 @@ import java.util.List;
 @Api(tags = "点播管理接口")
 @RestController
 @RequestMapping("/admin/vod/chapter")
-@CrossOrigin
+//@CrossOrigin
 public class ChapterController {
 
     @Resource

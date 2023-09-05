@@ -22,6 +22,18 @@
     </properties>
 
     <dependencies>
+        <!--解决swagger导致的 Illegal DefaultValue null for parameter type integer问题-->
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.5.22</version>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-models</artifactId>
+            <version>1.5.22</version>
+        </dependency>
+
         <!--数据载体-->
         <dependency>
             <groupId>com.atguigu</groupId>

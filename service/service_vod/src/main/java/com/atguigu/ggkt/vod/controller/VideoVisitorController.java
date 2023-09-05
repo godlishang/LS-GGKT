@@ -23,7 +23,7 @@ import java.util.Objects;
  */
 @Api(value = "VideoVisitor管理", tags = "VideoVisitor管理")
 @RequestMapping(value="/admin/vod/videoVisitor")
-@CrossOrigin
+//@CrossOrigin
 @RestController
 public class VideoVisitorController {
 

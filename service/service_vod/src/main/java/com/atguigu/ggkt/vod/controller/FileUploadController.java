@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 @Api(tags = "文件上传接口")
 @RestController
 @RequestMapping("/admin/vod/file")
-@CrossOrigin
+//@CrossOrigin
 public class FileUploadController {
 
     @Resource

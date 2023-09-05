@@ -37,7 +37,7 @@ tencent:
       region: ap-beijing
       secretId: AKIDrcBZcR4Vny3xfCWffWBbqOn2GNM9j9Rb
       secretKey: 1rZ6OUPHzV3b1IQQGtJZiojVAg074rW3
-  #bucket可以在控制台创建，也可以使用java代码创建
+      #bucket可以在控制台创建，也可以使用java代码创建
       bucketName: ggkt-atguigu-1319156449
 
 mybatis-plus:
