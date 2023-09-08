@@ -9,6 +9,7 @@
         <module>service</module>
         <module>common</module>
         <module>service_gateway</module>
+        <module>service_client</module>
     </modules>
 
     <parent>
@@ -39,7 +40,7 @@
         <aliyun.version>4.5.14</aliyun.version>
         <jodatime.version>2.10.1</jodatime.version>
         <jwt.version>0.7.0</jwt.version>
-        <xxl-job.version>2.3.0</xxl-job.version>
+        <xxl-job.version>2.3.1</xxl-job.version>
         <aliyun.oss.version>3.9.0</aliyun.oss.version>
     </properties>
 
@@ -124,10 +125,11 @@
                 <version>${jodatime.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/com.xuxueli/xxl-job-core -->
             <dependency>
                 <groupId>com.xuxueli</groupId>
                 <artifactId>xxl-job-core</artifactId>
-                <version>${xxl-job.version}</version>
+                <version>${xxl-job.version}}</version>
             </dependency>
             <!--swagger-->
             <dependency>
